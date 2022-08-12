@@ -7,13 +7,14 @@ We can remove the overhead of rewriting the code for VPC creation each time when
 ### Calling the Module
 
 You can import the module in any of your project like below;
-
+```sh
 module "vpc" {
   source = "/var/terraform/modules/vpc/"
   vpc_cidr = var.project_vpc_cidr
   project  = var.project_name
   env      = var.project_environment
 }
+```sh
 
 - source - Location of the Module
 - vpc_cidr - Passing the VPC CIDR to the Module as a Variable
