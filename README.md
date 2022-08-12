@@ -14,7 +14,7 @@ module "vpc" {
   project  = var.project_name
   env      = var.project_environment
 }
-```sh
+```
 
 - source - Location of the Module
 - vpc_cidr - Passing the VPC CIDR to the Module as a Variable
