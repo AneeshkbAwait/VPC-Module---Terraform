@@ -4,7 +4,7 @@ A Terraform module is a set of Terraform configuration files in a single directo
 
 Here, we have an example for a VPC module. Using this module, We can remove the overhead of rewriting the code for VPC creation each time when building infrastructure using Terraform. This VPC module can be used in situations where we want to create a VPC while infra building.
 
-##### variables.tf
+### variables.tf
 
 Required Module variables are defined in variables.tf and they are using default values set by me. These variable values shall be overrided when we are calling the modules in a project.
 
@@ -25,7 +25,7 @@ variable "env" {
 }
 ```
 
-##### output.tf
+### output.tf
 
 Whatever output values we defined at the output.tf shall be returned to the original project whenever they needed. Here, I have created output for Public and Private subnets and the vpc_id, so that they shall be called and used at the original project.
 
@@ -65,7 +65,7 @@ output "private3_subnet_id" {
 }
 ```
 
-##### datasource.tf
+### datasource.tf
 
 The available zones at the current region will be fetched using the "aws_availability_zones" data source. For example, If we are targetting the Mumbai region, then we will have ap-south-1a, ap-south-1b, and ap-south-1c availabilty zones.
 ```
@@ -74,7 +74,7 @@ data "aws_availability_zones" "az" {
 }
 ```
 
-##### main.tf
+### main.tf
 
 VPC Creation. We will create the following resources which should be required for making a VPC intercative;
 1. A Private and Public subnets for each availabilty zone.
@@ -328,7 +328,7 @@ resource "aws_route_table_association" "private3" {
   route_table_id = aws_route_table.private.id
 ```
 
-##### Calling the Module
+## Calling the Module
 
 You can import the module in any of your project like below;
 
